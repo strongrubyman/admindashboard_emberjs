@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: transactions
+#
+#  id                  :integer          not null, primary key
+#  wholesaler          :string
+#  wholesaler_id       :integer
+#  brewery_id          :integer
+#  gpa_id              :integer
+#  brand               :string
+#  size                :string
+#  on_hand_begin       :string
+#  sales_rate_per_day  :float
+#  days_on_hand        :string
+#  inbound_units_t0    :integer
+#  inbound_units_t1    :integer
+#  pallets_shipping_t1 :float
+#  days_shipping_t1    :float
+#  net_days_t1         :float
+#  po_number           :string
+#  units_packaging     :integer
+#  note                :text
+#  ship_date           :date
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wholesaler: MyText
+  gpa_id: 1
+  brand: MyString
+  size: MyString
+  on_hand_begin: MyString
+  sales_rate_per_day: 1.5
+  days_on_hand: MyString
+  inbound_units_t0: 1
+  inbound_units_t1: 1
+  pallets_shipping_t1: 1.5
+  days_shipping_t1: 1.5
+  net_days_t1: 1.5
+
+two:
+  wholesaler: MyText
+  gpa_id: 1
+  brand: MyString
+  size: MyString
+  on_hand_begin: MyString
+  sales_rate_per_day: 1.5
+  days_on_hand: MyString
+  inbound_units_t0: 1
+  inbound_units_t1: 1
+  pallets_shipping_t1: 1.5
+  days_shipping_t1: 1.5
+  net_days_t1: 1.5

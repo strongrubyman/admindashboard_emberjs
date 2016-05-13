@@ -1,0 +1,65 @@
+
+<h1>Imports</h1>
+
+<form class="form-horizontal" {{action 'importFile' on='submit'}}>
+    <h3>Transaction import</h3>
+
+  {{transactions.message}}
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">File</label>
+        <div class="col-sm-5">
+          {{file-uploader fileType='transactions'}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Brewery</label>
+        <div class="col-sm-5">
+          {{ember-selectize
+          content=breweries
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          value=transactions.id
+          placeholder="Brewery"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-5">
+          {{async-button 'transactions' action='importFile' default='Import' pending='Importing...' class="btn btn-primary "}}
+        </div>
+    </div>
+</form>
+
+
+<form class="form-horizontal" {{action 'importFile' on='submit'}}>
+    <h3>Products import</h3>
+
+  {{products.message}}
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">File</label>
+        <div class="col-sm-5">
+          {{file-uploader fileType='products'}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Brewery</label>
+        <div class="col-sm-5">
+          {{ember-selectize
+          content=breweries
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          value=products.id
+          placeholder="Brewery"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-5">
+          {{async-button 'products' action='importFile' default='Import' pending='Importing...' class="btn btn-primary "}}
+        </div>
+    </div>
+</form>

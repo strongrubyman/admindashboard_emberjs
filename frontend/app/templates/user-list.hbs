@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Contact Address 1</th>
+        <th>Contact Address 2</th>
+        <th>Contact City</th>
+        <th>Contact State</th>
+        <th>Contact Zip</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each savedUsers as |user|}}
+        <tr>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>{{user.contactAddress1}}</td>
+            <td>{{user.contactAddress1}}</td>
+            <td>{{user.contactCity}}</td>
+            <td>{{user.contactState}}</td>
+            <td>{{user.contactZip}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

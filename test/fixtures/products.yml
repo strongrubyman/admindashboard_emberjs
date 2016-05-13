@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id                :integer          not null, primary key
+#  gpa_id            :integer
+#  brand             :string
+#  pkg               :string
+#  size              :string
+#  group             :string
+#  brew_id           :string
+#  oz                :float
+#  pallet_qty        :integer
+#  layer_qty         :integer
+#  layers_per_pallet :integer
+#  status            :string
+#  pdcn              :string
+#  brewery_id        :integer
+#  ship_date         :date
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gpa_id: 1
+  brand: MyString
+  pkg: MyString
+  size: MyString
+  group: MyString
+  brew_id: MyString
+  oz: 1.5
+  pallet_qty: 1
+  layer_qty: 1
+  layers_per_pallet: 1
+  status: false
+  pdcn: MyString
+
+two:
+  gpa_id: 1
+  brand: MyString
+  pkg: MyString
+  size: MyString
+  group: MyString
+  brew_id: MyString
+  oz: 1.5
+  pallet_qty: 1
+  layer_qty: 1
+  layers_per_pallet: 1
+  status: false
+  pdcn: MyString

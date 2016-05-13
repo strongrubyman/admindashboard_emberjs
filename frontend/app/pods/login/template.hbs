@@ -1,0 +1,18 @@
+{{#unless session.isAuthenticated}}
+    <form class="form-signin" {{action 'authenticate' on='submit'}}>
+        <h1>GP-Analytics</h1>
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        <div>
+          {{errorMessage}}
+        </div>
+
+        <label for="identification" class="sr-only">Email address</label>
+      {{input value=identification placeholder='Enter Login' type='email' class="form-control"  required=true autofocus=true}}
+
+        <label for="password" class="sr-only">Password</label>
+      {{input value=password placeholder='Enter Password' type='password' class="form-control" required=true}}
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+{{/unless}}

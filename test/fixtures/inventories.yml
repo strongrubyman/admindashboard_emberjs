@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: inventories
+#
+#  id              :integer          not null, primary key
+#  gpa_id          :integer
+#  pdcn            :string
+#  brand           :string
+#  size            :string
+#  total_inventory :integer
+#  brewery_id      :integer
+#  ship_date       :date
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gpa_id: 1
+  pdcn: MyString
+  brand: MyString
+  size: MyString
+  total_inventory: 1
+
+two:
+  gpa_id: 1
+  pdcn: MyString
+  brand: MyString
+  size: MyString
+  total_inventory: 1

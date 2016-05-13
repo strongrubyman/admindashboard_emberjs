@@ -1,0 +1,84 @@
+<!-- Static navbar -->
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">GP-Analytics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          {{#if session.isAdmin}}
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Admin Pages <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li>{{link-to 'Users' 'users'}}</li>
+                      <li>{{link-to 'Breweries' 'breweries'}}</li>
+                      <li>{{link-to 'Wholesalers' 'wholesalers'}}</li>
+                      <li>{{link-to 'Imports' 'imports'}}</li>
+                  </ul>
+              </li>
+
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Brewery Dashboard <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    {{#each breweries as |brewery|}}
+                        <li> {{#link-to 'brewery-dashboard' brewery.id}}
+                            Brewery "{{brewery.userIdentity}}" Dashboard
+                        {{/link-to}}</li>
+                    {{/each}}
+                  </ul>
+              </li>
+
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Wholesaler Dashboard <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    {{#each wholesalers as |wholesaler|}}
+                        <li> {{#link-to 'wholesaler-dashboard' wholesaler.id}}
+                            Wholesaler "{{wholesaler.userIdentity}}" Dashboard
+                        {{/link-to}}</li>
+                    {{/each}}
+                  </ul>
+              </li>
+
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Week Splits <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    {{#each breweriesOrWholesalers as |user|}}
+                        <li> {{#link-to 'week-splits' user.id}}
+                            "{{user.userIdentity}}" {{user.role}} Week Splits
+                        {{/link-to}}</li>
+                    {{/each}}
+                  </ul>
+              </li>
+          {{/if}}
+
+          {{#if session.isBrewery}}
+              <li> {{link-to 'Brewery Dashboard' 'brewery-dashboard' session.id}} </li>
+          {{/if}}
+          {{#if (or session.isManager session.isWholesaler)}}
+              <li> {{link-to 'Wholesaler Dashboard' 'wholesaler-dashboard' session.id}} </li>
+          {{/if}}
+
+          {{#if session.isNotAdmin}}
+              <li> {{link-to 'Week Splits' 'week-splits' session.id}} </li>
+          {{/if}}
+        </ul>
+
+        <p class="navbar-text navbar-right">
+            Signed in as {{session.currentUser.userIdentity}}, {{session.currentUser.role}}
+            (<a {{ action 'invalidateSession' }} class="navbar-link">Logout</a>)
+        </p>
+    </div><!--/.nav-collapse -->
+</div><!--/.container-fluid -->
